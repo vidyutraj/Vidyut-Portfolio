@@ -4,8 +4,9 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 import fs from "fs";
 
-export default defineConfig(({ mode }) => ({
-  base: "/", // ✅ ALWAYS root now
+export default defineConfig(({ mode }) => {
+  return {
+    base: "/",
   server: {
     host: "::",
     port: 8080,
@@ -28,9 +29,10 @@ export default defineConfig(({ mode }) => ({
       },
     },
   ].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
     },
-  },
-}));
+  };
+});
