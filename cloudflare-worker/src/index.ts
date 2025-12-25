@@ -14,6 +14,19 @@ export interface Env {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    // Handle CORS preflight requests
+    if (request.method === 'OPTIONS') {
+      return new Response(null, {
+        status: 204,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST, OPTIONS',
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Max-Age': '86400',
+        },
+      });
+    }
+
     // Only allow POST requests
     if (request.method !== 'POST') {
       return new Response(
@@ -22,7 +35,8 @@ export default {
           status: 405,
           headers: { 
             'Content-Type': 'application/json',
-            'Allow': 'POST',
+            'Allow': 'POST, OPTIONS',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       );
@@ -34,7 +48,10 @@ export default {
         JSON.stringify({ error: 'Server configuration error: API key not set' }),
         { 
           status: 500,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
         }
       );
     }
@@ -49,7 +66,10 @@ export default {
           JSON.stringify({ error: 'Invalid request: messages array required' }),
           { 
             status: 400,
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+            },
           }
         );
       }
@@ -80,7 +100,10 @@ export default {
           }),
           { 
             status: groqResponse.status,
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*',
+            },
           }
         );
       }
@@ -105,7 +128,10 @@ export default {
         }),
         { 
           status: 500,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { 
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
         }
       );
     }
