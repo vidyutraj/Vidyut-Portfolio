@@ -60,30 +60,6 @@ export interface CompanyExperience {
 
 export const experiences: CompanyExperience[] = [
   {
-    company: 'West Monroe',
-    logo: '/logos/westmonroe.png',
-    logoAlt: 'West Monroe Logo',
-    totalDuration: '3 mos',
-    startDate: '2026-07',
-    endDate: '2026-09',
-    roles: [
-      {
-        position: 'Cybersecurity & Cloud and Infrastructure Consulting — Incoming Internship (Summer 2026)',
-        employmentType: 'Internship',
-        startDate: '2026-07',
-        endDate: '2026-09',
-        location: '',
-        defaultBullets: [
-          'Incoming Summer 2026 internship — details coming soon.',
-        ],
-        fullDetails: [
-          'Incoming Summer 2026 internship — details coming soon.',
-        ],
-        technologies: [],
-      },
-    ],
-  },
-  {
     company: 'Georgia Tech',
     logo: '/logos/GT.png',
     logoAlt: 'Georgia Tech Logo',
