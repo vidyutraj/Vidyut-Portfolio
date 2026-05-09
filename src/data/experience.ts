@@ -60,6 +60,28 @@ export interface CompanyExperience {
 
 export const experiences: CompanyExperience[] = [
   {
+    company: 'Qualcomm',
+    logo: '/logos/Qualcomm-Emblem.png',
+    logoAlt: 'Qualcomm Logo',
+    website: 'https://qualcomm.com',
+    totalDuration: '1 mo',
+    startDate: '2026-05',
+    endDate: null,
+    roles: [
+      {
+        position: 'Site Reliability Engineering (SRE) Intern',
+        employmentType: 'Internship',
+        startDate: '2026-05',
+        endDate: null,
+        location: '',
+        workType: 'On-site',
+        defaultBullets: [],
+        fullDetails: [],
+        technologies: [],
+      },
+    ],
+  },
+  {
     company: 'Georgia Tech',
     logo: '/logos/GT.png',
     logoAlt: 'Georgia Tech Logo',
