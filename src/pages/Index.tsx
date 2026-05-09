@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Navbar } from '@/components/Navbar';
+import { TelemetryBar } from '@/components/TelemetryBar';
 import { Hero } from '@/components/Hero';
 import { About } from '@/components/About';
 import { Projects } from '@/components/Projects';
@@ -34,6 +35,7 @@ const Index = () => {
       </Helmet>
 
       <div className="relative min-h-screen bg-background noise-overlay scrollbar-thin">
+        <TelemetryBar />
         <Navbar />
                     <main className="overflow-x-hidden">
                       <Hero />

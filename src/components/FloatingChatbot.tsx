@@ -267,30 +267,30 @@ export const FloatingChatbot = () => {
             setIsOpen(true);
             setIsMinimized(false);
           }}
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-foreground text-background shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.6)] hover:shadow-[0_15px_50px_-10px_hsl(var(--primary)/0.8)] hover:scale-105 transition-all duration-500 flex items-center justify-center group"
           aria-label="Open chatbot"
         >
-          <MessageCircle className="w-6 h-6 group-hover:rotate-12 transition-transform" />
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-terminal-green rounded-full border-2 border-background animate-pulse"></span>
+          <MessageCircle className="w-5 h-5 transition-transform duration-500 group-hover:scale-110" />
+          <span className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-primary rounded-full border-2 border-background animate-pulse"></span>
         </button>
       )}
 
       {/* Chat Window */}
       {isOpen && (
         <div
-          className={`fixed bottom-6 right-6 z-50 flex flex-col bg-card border border-border/50 rounded-2xl shadow-2xl transition-all duration-300 ${
+          className={`fixed bottom-6 right-6 z-50 flex flex-col bg-card/90 backdrop-blur-2xl border border-border/70 rounded-2xl shadow-2xl shadow-background/60 transition-all duration-500 ${
             isMinimized ? 'w-80 h-16' : 'w-96 h-[600px]'
           }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-border/30 bg-card rounded-t-2xl">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+          <div className="flex items-center justify-between p-4 border-b border-border/50 rounded-t-2xl">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center">
                 <Bot className="w-4 h-4 text-primary" />
               </div>
               <div>
-                <h3 className="font-semibold text-foreground text-sm">Portfolio Assistant</h3>
-                <p className="text-xs text-muted-foreground">Ask about {personalInfo.name.split(' ')[0]}'s work</p>
+                <h3 className="font-semibold text-foreground text-sm tracking-tight">Portfolio Assistant</h3>
+                <p className="text-[11px] text-muted-foreground font-mono tracking-wide">Ask about {personalInfo.name.split(' ')[0]}'s work</p>
               </div>
             </div>
             <div className="flex items-center gap-2">

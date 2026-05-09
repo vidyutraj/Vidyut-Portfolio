@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { Menu, X, Terminal } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navLinks = [
@@ -16,94 +16,120 @@ const navLinks = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <>
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-background/20' 
-            : 'bg-transparent'
-        }`}
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="fixed top-10 left-0 right-0 z-50 px-4"
       >
-        <div className="container px-6 md:px-8 max-w-7xl mx-auto">
-          <div className="flex items-center justify-between h-16 md:h-20">
-            {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group">
-              <div className="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                <Terminal className="w-4 h-4 text-primary group-hover:text-primary/90 transition-colors" />
+        <div
+          className={`mx-auto max-w-6xl transition-all duration-500 ease-out rounded-2xl ${
+            isScrolled
+              ? 'bg-background/60 backdrop-blur-2xl border border-border/60 shadow-2xl shadow-background/40'
+              : 'bg-transparent border border-transparent'
+          }`}
+        >
+          <div className="flex items-center justify-between h-14 px-4 md:px-6">
+            {/* Monogram */}
+            <a href="#" className="flex items-center gap-2.5 group" aria-label="Home">
+              <div className="relative w-8 h-8 rounded-lg border border-border/60 bg-card/40 flex items-center justify-center overflow-hidden">
+                <span className="font-display text-lg text-foreground group-hover:text-primary transition-colors duration-500">
+                  V
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/0 via-primary/0 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              <span className="font-mono font-semibold text-foreground hidden sm:block text-base group-hover:text-primary transition-colors">
-                ~/portfolio
+              <span className="hidden sm:block font-mono text-[11px] tracking-[0.25em] uppercase text-muted-foreground group-hover:text-foreground transition-colors">
+                Vidyut
               </span>
             </a>
 
-            {/* Desktop nav */}
-            <div className="hidden md:flex items-center gap-2">
+            {/* Desktop nav — magnetic hover with moving indicator */}
+            <div
+              className="hidden md:flex items-center gap-1 relative"
+              onMouseLeave={() => setHoveredLink(null)}
+            >
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary/50 rounded-lg transition-all duration-200"
+                  onMouseEnter={() => setHoveredLink(link.name)}
+                  className="relative px-3.5 py-1.5 text-[13px] font-medium text-muted-foreground hover:text-foreground transition-colors duration-300"
                 >
-                  {link.name}
+                  {hoveredLink === link.name && (
+                    <motion.span
+                      layoutId="nav-hover"
+                      className="absolute inset-0 rounded-lg bg-foreground/[0.06] border border-border/40"
+                      transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                    />
+                  )}
+                  <span className="relative">{link.name}</span>
                 </a>
               ))}
             </div>
 
-            {/* Desktop CTA */}
+            {/* CTA */}
             <div className="hidden md:block">
               <Button variant="hero-outline" size="sm" asChild>
-                <a href="#contact">Let's Talk</a>
+                <a href="#contact">
+                  <span className="relative z-10">Get in touch</span>
+                </a>
               </Button>
             </div>
 
-            {/* Mobile menu button */}
+            {/* Mobile trigger */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-foreground hover:bg-secondary/50 rounded-lg transition-colors"
+              className="md:hidden p-2 text-foreground hover:bg-foreground/[0.06] rounded-lg transition-colors"
+              aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
-      </nav>
+      </motion.nav>
 
       {/* Mobile menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 md:hidden bg-background/95 backdrop-blur-xl border-b border-border/50"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed inset-x-4 top-20 z-40 md:hidden bg-card/80 backdrop-blur-2xl border border-border/60 rounded-2xl shadow-2xl shadow-background/60 overflow-hidden"
           >
-            <div className="container px-6 py-6">
-              <div className="flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <a
+            <div className="p-4">
+              <div className="flex flex-col gap-1">
+                {navLinks.map((link, i) => (
+                  <motion.a
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="px-4 py-3 text-foreground hover:bg-secondary/50 rounded-lg transition-colors font-medium"
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 + i * 0.04, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="px-4 py-3 text-foreground hover:bg-foreground/[0.05] rounded-lg transition-colors font-medium flex items-center justify-between group"
                   >
-                    {link.name}
-                  </a>
+                    <span>{link.name}</span>
+                    <span className="text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-1 transition-all duration-300">
+                      →
+                    </span>
+                  </motion.a>
                 ))}
-                <div className="pt-4 border-t border-border">
+                <div className="pt-3 mt-2 border-t border-border/40">
                   <Button variant="hero" className="w-full" asChild>
                     <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
-                      Let's Talk
+                      Get in touch
                     </a>
                   </Button>
                 </div>

@@ -9,18 +9,18 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_20px_hsl(var(--glow-primary)/0.4)]",
+        default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-[0_0_24px_hsl(var(--glow-primary)/0.35)]",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-border bg-transparent text-foreground hover:border-primary hover:text-primary hover:shadow-[0_0_15px_hsl(var(--glow-primary)/0.2)]",
+        outline: "border border-border/80 bg-card/40 backdrop-blur-sm text-foreground hover:border-primary/50 hover:text-primary hover:bg-primary/[0.04]",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent/20 hover:text-accent-foreground",
+        ghost: "hover:bg-foreground/[0.06] hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Hero variant - primary with enhanced glow
-        hero: "bg-primary text-primary-foreground font-semibold hover:bg-primary/90 shadow-[0_0_20px_hsl(var(--glow-primary)/0.3)] hover:shadow-[0_0_30px_hsl(var(--glow-primary)/0.5)] hover:-translate-y-0.5",
-        // Hero outline variant
-        "hero-outline": "border border-primary/50 bg-primary/5 text-primary font-semibold hover:bg-primary/10 hover:border-primary hover:shadow-[0_0_20px_hsl(var(--glow-primary)/0.2)] hover:-translate-y-0.5",
-        // Terminal style
-        terminal: "bg-secondary/80 text-terminal-green font-mono border border-terminal-green/30 hover:border-terminal-green hover:bg-secondary hover:shadow-[0_0_15px_hsl(var(--terminal-green)/0.3)]",
+        // Hero — the primary CTA, refined
+        hero: "bg-foreground text-background font-medium hover:bg-foreground/90 shadow-[0_10px_40px_-10px_hsl(var(--primary)/0.4)] hover:shadow-[0_15px_50px_-10px_hsl(var(--primary)/0.6)] hover:-translate-y-[1px]",
+        // Hero outline — subtle, engineered
+        "hero-outline": "border border-border/80 bg-card/40 backdrop-blur-sm text-foreground font-medium hover:border-primary/50 hover:text-primary hover:bg-primary/[0.04]",
+        // Terminal style (legacy — kept for compatibility)
+        terminal: "bg-secondary/80 text-terminal-green font-mono border border-terminal-green/30 hover:border-terminal-green hover:bg-secondary",
       },
       size: {
         default: "h-10 px-4 py-2",
