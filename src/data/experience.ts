@@ -63,15 +63,14 @@ export const experiences: CompanyExperience[] = [
     company: 'Qualcomm',
     logo: '/logos/Qualcomm-Emblem.png',
     logoAlt: 'Qualcomm Logo',
-    website: 'https://qualcomm.com',
     totalDuration: '1 mo',
-    startDate: '2026-05',
+    startDate: '2026-06',
     endDate: null,
     roles: [
       {
         position: 'Site Reliability Engineering (SRE) Intern',
         employmentType: 'Internship',
-        startDate: '2026-05',
+        startDate: '2026-06',
         endDate: null,
         location: '',
         workType: 'On-site',
