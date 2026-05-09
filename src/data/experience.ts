@@ -74,10 +74,10 @@ export const experiences: CompanyExperience[] = [
         endDate: null,
         location: '',
         defaultBullets: [
-          'Security Operations Analyst focused on incident detection, investigation, and response within a production security environment.',
+          'Performed Tier 1 SOC triage and enterprise threat monitoring across 15,000+ endpoints using XDR/XSIAM and Elastic SIEM, detecting and responding to malware, botnet C2, and phishing activity.',
         ],
         fullDetails: [
-          'Security Operations Analyst focused on incident detection, investigation, and response within a production security environment.',
+          'Performed Tier 1 SOC triage and enterprise threat monitoring across 15,000+ endpoints using XDR/XSIAM and Elastic SIEM, detecting and responding to malware, botnet C2, and phishing activity.',
         ],
         technologies: [],
       },
@@ -88,12 +88,15 @@ export const experiences: CompanyExperience[] = [
         endDate: null,
         location: '',
         defaultBullets: [
-          'Research Assistant working with Professor Ryan Shandler, studying how exposure to cyberterrorism-related scenarios influences public attitudes toward surveillance and security policies, using experimental and behavioral research methods.'
+          'Collaborating with Dr. Ryan Shandler to simulate cyberattack scenarios and analyze their impact on public attitudes toward surveillance and security policies.'
         ],
         fullDetails: [
-          'Research Assistant working with Professor Ryan Shandler, studying how exposure to cyberterrorism-related scenarios influences public attitudes toward surveillance and security policies, using experimental and behavioral research methods.',
+          'Collaborating with Dr. Ryan Shandler to simulate cyberattack scenarios and analyze their impact on public attitudes toward surveillance and security policies.',
         ],
-        technologies: [],
+        technologies: [
+          'Google VEO 3',
+          'n8n'
+        ],
       },
       {
         position: 'Embedded System Security Researcher',
@@ -102,13 +105,10 @@ export const experiences: CompanyExperience[] = [
         endDate: null,
         location: '',
         defaultBullets: [
-          'Examining and assessing cybersecurity in IoT hardware devices through multi-domain investigation using hardware and firmware reverse engineering, RF analysis, and static/dynamic testing.',
-          'Focusing on automated testing, tool development, wireless communication design, and zero-day discovery through instrumentation and analysis.',
+          'Reverse engineering the Wyze smart home ecosystem using Ghidra for firmware analysis and RF protocol inspection to uncover vulnerabilities in OTA packet-processing logic.',
         ],
         fullDetails: [
-          'Examining and assessing cybersecurity in IoT hardware devices through multi-domain investigation using hardware and firmware reverse engineering, RF analysis, and static/dynamic testing.',
-          'Focusing on automated testing, tool development, wireless communication design, and zero-day discovery through instrumentation and analysis.',
-          'Implementing hardware reverse engineering, software/firmware reverse engineering, RF analysis, along with static and dynamic testing through instrumentation to identify and demonstrate security vulnerabilities in embedded systems.',
+          'Reverse engineering the Wyze smart home ecosystem using Ghidra for firmware analysis and RF protocol inspection to uncover vulnerabilities in OTA packet-processing logic.',
         ],
         technologies: [
           'Hardware Reverse Engineering',
