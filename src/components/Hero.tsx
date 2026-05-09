@@ -91,12 +91,12 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: EASE }}
-              className="text-[clamp(2.75rem,7.5vw,6.25rem)] font-semibold text-foreground leading-[0.92] tracking-[-0.035em] mb-6 break-words"
+              className="text-[clamp(2.75rem,7.5vw,6.25rem)] font-semibold text-foreground leading-[1.02] tracking-[-0.035em] mb-6 break-words"
             >
-              <span className="block gradient-text">
+              <span className="block gradient-text pb-[0.08em]">
                 {personalInfo.name.split(' ')[0]}
               </span>
-              <span className="block gradient-text">
+              <span className="block gradient-text pb-[0.12em]">
                 {personalInfo.name.split(' ').slice(1).join(' ')}
                 <span className="font-display italic text-primary/90 ml-1.5">.</span>
               </span>
