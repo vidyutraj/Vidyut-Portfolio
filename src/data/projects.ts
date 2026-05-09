@@ -17,6 +17,25 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'AI Cyber Threat Intelligence Dashboard',
+    category: 'Cybersecurity Labs',
+    description: 'Full-stack cyber threat intelligence workspace that ingests live security feeds, extracts and enriches IOCs and CVEs, scores and clusters stories, and surfaces actionable intelligence through a React UI with an optional AI layer.',
+    problem: 'CVE and threat feeds are noisy and fragmented — analysts waste time manually correlating raw articles instead of acting on signal.',
+    approach: 'Built a Python/Flask backend that scrapes RSS and HTML feeds (The Hacker News, Krebs, CISA, BleepingComputer, Dark Reading), extracts IOCs and CVEs, enriches them via NVD/EPSS/CISA KEV, and scores/clusters stories using MinHash deduplication and EWMA trending. An optional OpenAI layer adds executive briefs, semantic search embeddings, and a RAG chat assistant (ARIA). The React frontend visualizes everything across tabbed views including an IOC correlation graph (D3), kill chain mapping, actor tracking, and STIX 2.1 export.',
+    outcome: 'Turns raw threat articles into ranked CVEs, trending IOCs, MITRE ATT&CK coverage, near-duplicate story clusters, and a single queryable workspace — with full AI features when an OpenAI key is provided.',
+    techStack: ['Python', 'Flask', 'React', 'Vite', 'D3.js', 'SQLite', 'OpenAI', 'LangChain', 'STIX 2.1', 'NVD API', 'EPSS', 'CISA KEV', 'MinHash', 'RAG'],
+    githubUrl: 'https://github.com/vidyutraj/AI-Cyber-Threat-Intelligence-Dashboard',
+    featured: true,
+    achievements: [
+      'Ingests 6 live threat feeds with per-source freshness tracking and SSE push updates',
+      'Enriches CVEs with NVD, EPSS probability scores, and CISA KEV status',
+      'IOC correlation graph with community detection and centrality scoring',
+      'RAG chat assistant (ARIA) over the full article corpus with enrichment context',
+      'STIX 2.1 bundle and IOC CSV export for downstream tooling',
+    ],
+    additionalDetails: 'Architecture: RSS/HTML scrape → per-source CSV → IOC/CVE extraction → background enrichment workers → intel_cache.sqlite3 → Flask API → React UI. Intelligence modules cover scoring, correlation graphs, EWMA trending, MinHash deduplication, OpenAI embeddings with TF-IDF fallback, MITRE ATT&CK kill chain mapping, and actor alias matching. UI tabs: Executive (threat level banner, KPIs, AI situation summary), Threat Intelligence (overview, IOC graph, kill chain, actors, semantic search, STIX/IOC export), Feed (per-source articles with live updates), Malware (MalwareBazaar samples), and ARIA (floating RAG chat).',
+  },
+  {
     title: 'UPS Airlines OptiFlight',
     category: 'Automation & Tooling',
     description: 'Optimization-driven solution that automates outbound flight plans in response to real-time weather disruptions at UPS Airlines\' global hub.',
@@ -173,25 +192,6 @@ export const projects: Project[] = [
       'Local test harness with mock mode for offline development and validation',
     ],
     additionalDetails: 'Uses Manifest V3 with chrome.identity for seamless OAuth token management. Queries the Google Calendar freeBusy endpoint to compute open windows across the selected date range and formats them into a recruiter-ready message. Includes a browser-based test.html harness (served via localhost) supporting both synthetic mock events and real calendar data via a Web Application OAuth client — useful for validating free-window logic and message output without reloading the extension.',
-  },
-  {
-    title: 'AI Cyber Threat Intelligence Dashboard',
-    category: 'Cybersecurity Labs',
-    description: 'Full-stack cyber threat intelligence workspace that ingests live security feeds, extracts and enriches IOCs and CVEs, scores and clusters stories, and surfaces actionable intelligence through a React UI with an optional AI layer.',
-    problem: 'CVE and threat feeds are noisy and fragmented — analysts waste time manually correlating raw articles instead of acting on signal.',
-    approach: 'Built a Python/Flask backend that scrapes RSS and HTML feeds (The Hacker News, Krebs, CISA, BleepingComputer, Dark Reading), extracts IOCs and CVEs, enriches them via NVD/EPSS/CISA KEV, and scores/clusters stories using MinHash deduplication and EWMA trending. An optional OpenAI layer adds executive briefs, semantic search embeddings, and a RAG chat assistant (ARIA). The React frontend visualizes everything across tabbed views including an IOC correlation graph (D3), kill chain mapping, actor tracking, and STIX 2.1 export.',
-    outcome: 'Turns raw threat articles into ranked CVEs, trending IOCs, MITRE ATT&CK coverage, near-duplicate story clusters, and a single queryable workspace — with full AI features when an OpenAI key is provided.',
-    techStack: ['Python', 'Flask', 'React', 'Vite', 'D3.js', 'SQLite', 'OpenAI', 'LangChain', 'STIX 2.1', 'NVD API', 'EPSS', 'CISA KEV', 'MinHash', 'RAG'],
-    githubUrl: 'https://github.com/vidyutraj/AI-Cyber-Threat-Intelligence-Dashboard',
-    featured: true,
-    achievements: [
-      'Ingests 6 live threat feeds with per-source freshness tracking and SSE push updates',
-      'Enriches CVEs with NVD, EPSS probability scores, and CISA KEV status',
-      'IOC correlation graph with community detection and centrality scoring',
-      'RAG chat assistant (ARIA) over the full article corpus with enrichment context',
-      'STIX 2.1 bundle and IOC CSV export for downstream tooling',
-    ],
-    additionalDetails: 'Architecture: RSS/HTML scrape → per-source CSV → IOC/CVE extraction → background enrichment workers → intel_cache.sqlite3 → Flask API → React UI. Intelligence modules cover scoring, correlation graphs, EWMA trending, MinHash deduplication, OpenAI embeddings with TF-IDF fallback, MITRE ATT&CK kill chain mapping, and actor alias matching. UI tabs: Executive (threat level banner, KPIs, AI situation summary), Threat Intelligence (overview, IOC graph, kill chain, actors, semantic search, STIX/IOC export), Feed (per-source articles with live updates), Malware (MalwareBazaar samples), and ARIA (floating RAG chat).',
   },
   {
     title: 'TheraFit',

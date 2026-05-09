@@ -9,6 +9,14 @@ export interface Article {
 
 export const articles: Article[] = [
   {
+    title: 'From Chips to Systems: Rethinking AI Export Controls for Long-Term National Security',
+    description: 'A forward-looking perspective on how competitive advantage in AI is shifting from individual components like chips to fully integrated systems — arguing that success will depend on coordinating hardware, software, data, and organizational capabilities rather than breakthroughs in any single layer.',
+    date: '2026-02-27',
+    readTime: '8 min',
+    url: 'https://georgetownai.substack.com/p/from-chips-to-systems-rethinking',
+    tags: ['AI Policy', 'National Security', 'Export Controls', 'Geopolitics', 'AI Strategy'],
+  },
+  {
     title: 'AWS Outage Breaks Most of the Internet: My Thoughts',
     description: 'Breaking down the global AWS outage affecting 1000+ businesses, analyzing root causes related to DynamoDB DNS resolution, and discussing solutions like multi-region and multi-cloud architectures.',
     date: '2025-10-21',
